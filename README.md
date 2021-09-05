@@ -8,15 +8,7 @@ Assuming you have this plugin installed into Godot.
 
 > Need help installing a plugin? Try [HERE](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html)
 
-From there simply active the plugin, then add a Logger node to your scene or create a new Logger instance via code.
-
-```gdscript
-var Log
-
-func _ready():
-    Log = Logger.new()
-    # Don't forget to configure the Logger node too!
-```
+From there simply active the plugin, then add a Logger node to your scene.
 
 ## Configuration
 
