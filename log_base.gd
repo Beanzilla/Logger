@@ -20,8 +20,8 @@ export var CRIT = true
 
 func _enter_tree():
 	logy = self
-	editor_description = "Logger V1.0 ApolloX"
-	logy.editor_description = "Logger V1.0 ApolloX"
+	editor_description = "Logger V1.1 ApolloX"
+	logy.editor_description = "Logger V1.1 ApolloX"
 	logy.setup()
 	return logy
 

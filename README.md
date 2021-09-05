@@ -44,7 +44,7 @@ This allows fully customised log files.
 | 12hour | The current hour as 12 hour (Use `ampm` to add the AM/PM), as 2 digits. (I.E. 1 PM is `01`)
 | min | The current minute as 2 digits. (I.E. 5 minutes is `05`)
 | sec | The current second as 2 digits. (I.E. 2 seconds is `02`)
-| ampm | A string describing if it's AM or PM. (Only use with `12hour`)
+| ampm | A string describing if it's AM or PM. (Only use with `12hour`, it will be invisible if no `12hour` in format)
 
 > dt is used to abreviate date time in File Name, and Formatting.
 
