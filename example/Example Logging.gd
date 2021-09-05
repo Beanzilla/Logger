@@ -17,5 +17,5 @@ func _ready():
 	printerr("This only goes to the console")
 	
 	# Logger also includes some assistant functions
-	print("Current datetime stamp: ", Log.timestamp()) # This is used internally by Logger itself
+	print("Current datetime stamp: ", Log.timestamp("{month}/{day}/{year} {12hour}:{min}:{sec} {ampm}")) # I.E. '01/01/2000 01:53:22 AM'
 	print("Position of Example Logging node: ", Log.pos2str(self.position)) # This is so you can print positions

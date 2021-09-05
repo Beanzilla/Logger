@@ -44,10 +44,12 @@ func pos2str(pos: Vector2 = Vector2(0, 0)) -> String:
 func timestamp(fmat="{month}/{day}/{year} {24hour}:{min}:{sec}", in_utc: bool = false):
 	var t = OS.get_datetime(in_utc)
 	var hour12 = t.hour
-	var ampm = "AM"
-	if hour12 > 12:
-		hour12 -= 12
-		ampm = "PM"
+	var ampm = "" # Fill it in only if 12hour is requested
+	if "12hour" in fmat: # Only use if 12hour is visible in formating
+        ampm = "AM"
+	    if hour12 > 12:
+		    hour12 -= 12
+		    ampm = "PM"
 	var result = fmat.format({"month": str(t.month).pad_zeros(2), "day": str(t.day).pad_zeros(2), "year": str(t.year).pad_zeros(4), "24hour": str(t.hour).pad_zeros(2), "12hour": str(hour12).pad_zeros(2), "min": str(t.minute).pad_zeros(2), "sec": str(t.second).pad_zeros(2), "ampm": str(ampm)})
 	return result
 
