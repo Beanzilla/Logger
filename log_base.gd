@@ -41,7 +41,7 @@ func setup():
 func pos2str(pos: Vector2 = Vector2(0, 0)) -> String:
 	return "(" + str(pos.x) + ", " + str(pos.y) + ")"
 
-func timestamp(fmat="{month}/{day}/{year} {24hour}:{min}:{sec}", in_utc: bool = false):
+func timestamp(fmat : String ="{month}/{day}/{year} {24hour}:{min}:{sec}", in_utc: bool = false):
 	var t = OS.get_datetime(in_utc)
 	var hour12 = t.hour
 	var ampm = "" # Fill it in only if 12hour is requested
@@ -53,7 +53,7 @@ func timestamp(fmat="{month}/{day}/{year} {24hour}:{min}:{sec}", in_utc: bool = 
 	var result = fmat.format({"month": str(t.month).pad_zeros(2), "day": str(t.day).pad_zeros(2), "year": str(t.year).pad_zeros(4), "24hour": str(t.hour).pad_zeros(2), "12hour": str(hour12).pad_zeros(2), "min": str(t.minute).pad_zeros(2), "sec": str(t.second).pad_zeros(2), "ampm": str(ampm)})
 	return result
 
-func debug(msg):
+func debug(msg : String):
 	if DEBUG:
 		var dt = timestamp(time_format)
 		var line = formatting.format({"dt": dt, "level": "DEBUG", "msg": msg})
@@ -62,7 +62,7 @@ func debug(msg):
 			log_file.store_string(line + "\n")
 			log_file.flush()
 
-func info(msg):
+func info(msg : String):
 	if INFO:
 		var dt = timestamp(time_format)
 		var line = formatting.format({"dt": dt, "level": "INFO", "msg": msg})
@@ -71,7 +71,7 @@ func info(msg):
 			log_file.store_string(line + "\n")
 			log_file.flush()
 
-func warn(msg):
+func warn(msg : String):
 	if WARN:
 		var dt = timestamp(time_format)
 		var line = formatting.format({"dt": dt, "level": "WARN", "msg": msg})
@@ -80,11 +80,11 @@ func warn(msg):
 			log_file.store_string(line + "\n")
 			log_file.flush()
 
-func warning(msg):
+func warning(msg : String):
 	if WARN:
 		warn(msg)
 
-func error(msg, and_exit: bool = false):
+func error(msg : String, and_exit: bool = false):
 	if ERROR:
 		var dt = timestamp(time_format)
 		var line = formatting.format({"dt": dt, "level": "ERROR", "msg": msg})
@@ -96,7 +96,7 @@ func error(msg, and_exit: bool = false):
 			var my_pid = OS.get_process_id()
 			var _ec = OS.kill(my_pid)
 
-func crit(msg, and_exit: bool = true):
+func crit(msg : String, and_exit: bool = true):
 	if CRIT:
 		var dt = timestamp(time_format)
 		var line = formatting.format({"dt": dt, "level": "CRITICAL", "msg": msg})
@@ -108,6 +108,6 @@ func crit(msg, and_exit: bool = true):
 			var my_pid = OS.get_process_id()
 			var _ec = OS.kill(my_pid)
 
-func critical(msg, and_exit: bool = true):
+func critical(msg : String, and_exit: bool = true):
 	if CRIT:
 		crit(msg, and_exit)
