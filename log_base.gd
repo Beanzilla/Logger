@@ -56,7 +56,7 @@ func timestamp(fmat : String ="{month}/{day}/{year} {24hour}:{min}:{sec}", in_ut
 func debug(msg : String):
 	if DEBUG:
 		var dt = timestamp(time_format)
-		var line = formatting.format({"dt": dt, "level": "DEBUG", "msg": msg})
+		var line = formatting.format({"dt": dt, "level": "DEBUG   ", "msg": msg})
 		if log_file != null:
 			log_file.seek_end()
 			log_file.store_string(line + "\n")
@@ -65,7 +65,7 @@ func debug(msg : String):
 func info(msg : String):
 	if INFO:
 		var dt = timestamp(time_format)
-		var line = formatting.format({"dt": dt, "level": "INFO", "msg": msg})
+		var line = formatting.format({"dt": dt, "level": "INFO    ", "msg": msg})
 		if log_file != null:
 			log_file.seek_end()
 			log_file.store_string(line + "\n")
@@ -74,7 +74,7 @@ func info(msg : String):
 func warn(msg : String):
 	if WARN:
 		var dt = timestamp(time_format)
-		var line = formatting.format({"dt": dt, "level": "WARN", "msg": msg})
+		var line = formatting.format({"dt": dt, "level": "WARN    ", "msg": msg})
 		if log_file != null:
 			log_file.seek_end()
 			log_file.store_string(line + "\n")
@@ -87,7 +87,7 @@ func warning(msg : String):
 func error(msg : String, and_exit: bool = false):
 	if ERROR:
 		var dt = timestamp(time_format)
-		var line = formatting.format({"dt": dt, "level": "ERROR", "msg": msg})
+		var line = formatting.format({"dt": dt, "level": "ERROR   ", "msg": msg})
 		if log_file != null:
 			log_file.seek_end()
 			log_file.store_string(line + "\n")
