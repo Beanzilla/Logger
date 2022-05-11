@@ -2,7 +2,7 @@ tool
 extends Node
 
 var log_file = null
-export var persist_debug = true
+export var persist_log = true # If false the log file gets cleared automatically every startup
 var logy = null
 
 export var file_dir = "res://"
@@ -20,16 +20,17 @@ export var CRIT = true
 
 func _enter_tree():
 	logy = self
-	editor_description = "Logger V1.2 ApolloX"
-	logy.editor_description = "Logger V1.2 ApolloX"
+	editor_description = "Logger V1.3 ApolloX"
+	logy.editor_description = "Logger V1.3 ApolloX"
 	logy.setup()
 	return logy
 
 func setup():
 	log_file = File.new()
 	var dtnow = timestamp(file_name_time_format)
-	if !log_file.file_exists(file_dir + file_name.format({"dt": dtnow})) or !persist_debug:
+	if !log_file.file_exists(file_dir + file_name.format({"dt": dtnow})) or !persist_log:
 		log_file.open(file_dir + file_name.format({"dt": dtnow}), File.WRITE)
+		log_file.store_string("") # Fix issue where non-persistent would not reset properly
 		log_file.close()
 		log_file.open(file_dir + file_name.format({"dt": dtnow}), File.READ_WRITE)
 		log_file.seek_end()
