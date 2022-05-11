@@ -16,7 +16,7 @@ If you've used the Godot editor to create the Logger node then you can simply us
 
 | Value | Type | Description |
 |------------|------------|-----------|
-| Persist Debug | Bool | Does the log file get cleared on start of the scene/instance/use of logging? |
+| Persist Log | Bool | Does the log file get cleared on start of the scene/instance/use of logging? |
 | File Dir | String | The path to store the log file. |
 | File Name | String | The name of the log file. (See Format Template section for help on what {dt} means) |
 | File Name Time Format | String | Defines {dt} in File Name. (See Format Template section for help on what {dt} means) |
